@@ -95,6 +95,7 @@ getent group shairport-sync &>/dev/null || sudo groupadd -r shairport-sync >/dev
 getent passwd shairport-sync &> /dev/null || sudo useradd -r -M -g shairport-sync -s /usr/bin/nologin -G audio shairport-sync >/dev/null
 make install
 systemctl enable shairport-sync
+cp /root/raspi-ha/setup_files/shairport-sync.conf /etc/shairport-sync.conf
 
 ##setup new user, and remove pi user
 useradd davidplappert
@@ -111,3 +112,5 @@ rm -rf /home/pi
 
 cp /root/raspi-ha/setup_files/bashrc /root/.bashrc
 chmod 755 /root/.bashrc
+
+reboot
