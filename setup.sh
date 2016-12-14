@@ -1,5 +1,7 @@
+##Install Debian to sd card on made_change## https://www.raspberrypi.org/documentation/installation/installing-images/mac.md
+
 ##functions used below
-##https://github.com/asb/raspi-config/blob/master/raspi-config
+##https://github.com/asb/raspi-config/blob/master/raspi-config#L118
 set_config_var() {
   lua - "$1" "$2" "$3" <<EOF > "$3.bak"
 local key=assert(arg[1])
@@ -34,6 +36,8 @@ for line in file:lines() do
   end
 end
 EOF
+}
+
 
 ##update the pi
 apt-get -y update
@@ -42,7 +46,7 @@ cd ~
 apt-get -y install htop curl git
 
 ##config pi
-## https://github.com/asb/raspi-config/blob/master/raspi-config
+##https://github.com/asb/raspi-config/blob/master/raspi-config
 
 ##update hostname
 ##make sure to update this with the correct hostname
