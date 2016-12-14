@@ -79,7 +79,7 @@ curl http://www.linux-projects.org/listing/uv4l_repo/lrkey.asc | sudo apt-key ad
 echo "deb http://www.linux-projects.org/listing/uv4l_repo/raspbian/ jessie main" >>  /etc/apt/sources.list
 apt-get -y update
 apt-get -y install uv4l uv4l-raspicam uv4l-raspicam-extras uv4l-server uv4l-uvc uv4l-xscreen uv4l-mjpegstream uv4l-dummy uv4l-raspidisp uv4l-webrtc uv4l-xmpp-bridge
-cp setup_files/uv4l-raspicam.conf /etc/uv4l/uv4l-raspicam.conf
+cp /root/raspi-ha/setup_files/uv4l-raspicam.conf /etc/uv4l/uv4l-raspicam.conf
 chmod 555 /etc/uv4l/uv4l-raspicam.conf
 service uv4l_raspicam restart
 
@@ -103,11 +103,11 @@ echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC0tRFmXA0/w1tJZa1EpU1oGKFsN2VM0wuoSj
 chown -R davidplappert /home/davidplappert
 sed -i -e 's/pi/davidplappert/g' /etc/sudoers.d/010_pi-nopasswd
 
-cp setup_files/profile /home/davidplappert/.profile
+cp /root/raspi-ha/setup_files/profile /home/davidplappert/.profile
 chmod 755 /home/davidplappert/.profile
 
 userdel pi
 rm -rf /home/pi
 
-cp setup_files/bashrc /root/.bashrc
+cp /root/raspi-ha/setup_files/bashrc /root/.bashrc
 chmod 755 /root/.bashrc
